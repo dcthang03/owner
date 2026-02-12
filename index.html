@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<title>Rivebase — Owner Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html{
+  height:100%;
+  overflow-x:hidden;
+}
+
+/* ===== BACKGROUND giống INDEX ===== */
+
+body{
+
+  min-height:100dvh;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  padding-top:clamp(90px,14vh,180px);
+
+  color:#EAF0FF;
+
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.35), transparent 55%),
+    radial-gradient(900px 600px at 90% 0%, rgba(34,211,238,.22), transparent 55%),
+    radial-gradient(900px 600px at 70% 120%, rgba(96,165,250,.18), transparent 60%),
+    #070A12;
+}
+
+
+/* ===== LOGIN CARD ===== */
+
+.login-card{
+
+  width:min(380px,90%);
+  padding:44px;
+
+  border-radius:26px;
+
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.07),
+    rgba(255,255,255,.04)
+  );
+
+  backdrop-filter: blur(24px);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  box-shadow:0 25px 90px rgba(0,0,0,.6);
+}
+
+
+/* ===== RIVEBASE LOGO ===== */
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:28px;
+}
+
+.logo-icon{
+
+  width:54px;
+  height:54px;
+  border-radius:16px;
+
+  background:
+    radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.6), transparent 60%),
+    linear-gradient(135deg, #7C3AED, #22D3EE);
+
+  box-shadow:0 12px 40px rgba(124,58,237,.35);
+  border:1px solid rgba(255,255,255,.25);
+
+  margin-bottom:14px;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.brand-name{
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
+.tagline{
+  margin-top:2px;
+  font-size:13px;
+  color:rgba(234,240,255,.65);
+}
+
+
+.brand-name{
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
+.tagline{
+  margin-top:4px;
+  font-size:13px;
+  color:rgba(234,240,255,.65);
+}
+
+
+/* ===== SUBTITLE ===== */
+
+.subtitle{
+  text-align:center;
+  color:rgba(234,240,255,.65);
+  font-size:14px;
+  margin-bottom:30px;
+}
+
+
+/* INPUT GROUP */
+
+.input-group{
+  margin-bottom:18px;
+}
+
+label{
+  display:block;
+  color:#cbd5e1;
+  font-size:13px;
+  margin-bottom:6px;
+}
+
+
+/* UID */
+
+.uid-wrap{
+
+  display:flex;
+  align-items:center;
+
+  background:rgba(15,23,42,0.6);
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.10);
+
+  padding-left:12px;
+}
+
+.uid-prefix{
+  color:#c7d2fe;
+  font-weight:600;
+  letter-spacing:1.5px;
+  background:rgba(99,102,241,0.18);
+  padding:4px 8px;
+  border-radius:6px;
+}
+
+.uid-dash{
+  color:#64748b;
+  margin:0 6px;
+}
+
+
+/* INPUT */
+
+input{
+
+  width:100%;
+  padding:12px 12px;
+
+  font-size:16px;
+  color:#e5e7eb;
+
+  background:transparent;
+
+  border:none;
+  outline:none;
+}
+
+input::placeholder{
+  color:#64748b;
+}
+
+
+/* PIN */
+
+.pin-input{
+  background:rgba(15,23,42,0.6);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:12px;
+}
+
+
+/* ===== BUTTON (giống index) ===== */
+
+button{
+
+  width:100%;
+  padding:14px;
+
+  border-radius:14px;
+  border:none;
+
+  font-weight:700;
+  letter-spacing:.3px;
+
+  cursor:pointer;
+
+  margin-top:12px;
+
+  background:#ffffff;
+  color:#0A0F1F;
+
+  transition:.2s;
+}
+
+button:hover{
+  background:rgba(255,255,255,.92);
+  transform:translateY(-1px);
+}
+
+
+/* ERROR */
+
+.error{
+  margin-top:12px;
+  color:#ff8aa1;
+  font-size:13px;
+  text-align:center;
+  display:none;
+}
+
+
+/* FOOTER */
+
+.footer{
+  margin-top:26px;
+  text-align:center;
+  color:#64748b;
+  font-size:12px;
+}
+
+@media(max-width:420px){
+  .login-card{
+    padding:30px;
+  }
+}
+</style
+</head>
+
+<body>
+
+<div class="login-card">
+
+ <div class="brand">
+
+  <div class="logo-icon"></div>
+
+  <div class="brand-text">
+    <div class="brand-name">Rivebase</div>
+    <div class="tagline">Secure Owner Access
+</div>
+  </div>
+
+</div>
+
+
+  <!-- UID -->
+
+  <div class="input-group">
+    <label>Owner UID</label>
+
+    <div class="uid-wrap">
+      <span class="uid-prefix">AD</span>
+      <span class="uid-dash">-</span>
+
+      <input
+        id="ownerUidInput"
+        placeholder="xx"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        autocomplete="off"
+      >
+    </div>
+  </div>
+
+  <!-- PIN -->
+
+  <div class="input-group">
+    <label>PIN</label>
+
+    <input
+      id="pinInput"
+      class="pin-input"
+      type="password"
+      placeholder="••••"
+      inputmode="numeric"
+      maxlength="4"
+    >
+  </div>
+
+  <button id="loginBtn" onclick="login()">Login</button>
+
+  <div id="error" class="error">Invalid UID or PIN</div>
+
+  <div class="footer">© 2026 Rivebase • Internal Operations</div>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+// INIT
+const sb = supabase.createClient(
+  "https://ymtmipkmknnsqleahlmi.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InltdG1pcGtta25uc3FsZWFobG1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAwOTU1MjUsImV4cCI6MjA4NTY3MTUyNX0.7pEza-TKBKJ_xqdBu93nLo-PRaHDcDIxW-bjZnrFJxw"
+);
+
+const ownerUidInput = document.getElementById("ownerUidInput");
+const pinInput = document.getElementById("pinInput");
+const errorDiv = document.getElementById("error");
+const loginBtn = document.getElementById("loginBtn");
+
+// focus
+ownerUidInput.focus();
+
+
+// AUTO SKIP UID → PIN
+ownerUidInput.addEventListener("input", ()=>{
+
+  ownerUidInput.value = ownerUidInput.value.replace(/\D/g,'').slice(0,2);
+
+  if(ownerUidInput.value.length === 2){
+    pinInput.focus();
+  }
+
+});
+
+
+// AUTO LOGIN PIN
+pinInput.addEventListener("input", ()=>{
+
+  pinInput.value = pinInput.value.replace(/\D/g,'').slice(0,4);
+
+  if(pinInput.value.length === 4){
+    login();
+  }
+
+});
+
+
+// LOGIN
+async function login(){
+
+  if(loginBtn.disabled) return;
+
+  errorDiv.style.display = "none";
+
+  const owner_uid = "AD" + ownerUidInput.value.trim();
+  const pin = pinInput.value.trim();
+
+  if(ownerUidInput.value.length !== 2 || pin.length !== 4){
+
+    errorDiv.innerText = "Enter valid UID and PIN";
+    errorDiv.style.display = "block";
+    return;
+  }
+
+  loginBtn.disabled = true;
+  loginBtn.innerText = "Logging in...";
+
+  // ✅ RPC (khuyến nghị tạo function owner_login giống agent_login)
+  const { data, error } = await sb.rpc("owner_login",{
+    input_uid: owner_uid,
+    input_pin: pin
+  });
+
+  loginBtn.disabled = false;
+  loginBtn.innerText = "Login";
+
+  if(error || !data?.length){
+
+    errorDiv.innerText = "Invalid UID or PIN";
+    errorDiv.style.display = "block";
+
+    pinInput.value="";
+    pinInput.focus();
+
+    return;
+  }
+
+  
+  localStorage.setItem("owner_uid", data[0].uid);
+
+  window.location.href = "/panel/";
+}
+
+
+// ENTER
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Enter") login();
+});
+
+</script>
+
+</body>
+</html>
